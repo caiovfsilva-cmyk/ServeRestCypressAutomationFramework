@@ -1,7 +1,8 @@
 const { defineConfig } = require('cypress')
+const { allureCypress } = require('allure-cypress/reporter')
 
 module.exports = defineConfig({
-  allowCypressEnv: false,
+  allowCypressEnv: true,
 
   e2e: {
     baseUrl: 'https://front.serverest.dev',
@@ -26,7 +27,11 @@ module.exports = defineConfig({
       openMode: 0,
     },
 
-    setupNodeEvents(on, config) {
+       setupNodeEvents(on, config) {
+      allureCypress(on, config, {
+        resultsDir: 'allure-results',
+      })
+
       return config
     },
   },

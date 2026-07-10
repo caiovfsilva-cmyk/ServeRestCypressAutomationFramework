@@ -4,11 +4,13 @@
 
 Professional End-to-End and API Test Automation Framework built with **Cypress** and **JavaScript**.
 
+Developed as part of a **QA Automation Technical Challenge**, following modern software engineering and test automation best practices.
+
 ![Cypress](https://img.shields.io/badge/Cypress-15.x-69D3A7?logo=cypress)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript)
 ![Node.js](https://img.shields.io/badge/Node.js-20.x-339933?logo=node.js)
-![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Allure](https://img.shields.io/badge/Allure-Report-orange)
+![Status](https://img.shields.io/badge/Challenge-Completed-brightgreen)
 
 </div>
 
@@ -16,20 +18,19 @@ Professional End-to-End and API Test Automation Framework built with **Cypress**
 
 # 📖 Overview
 
-This project was developed as part of a **QA Automation Technical Challenge**.
+This project was developed as part of a QA Automation Technical Challenge.
 
-The goal is to build a scalable, maintainable and reusable automation framework using **Cypress** to validate both **Frontend** and **API** business flows of the **ServeRest** application.
+The objective was to build a scalable, reusable and maintainable automation framework capable of validating both Frontend and API business flows.
 
-The framework follows software engineering and test automation best practices, focusing on:
+The framework was designed following industry best practices with emphasis on:
 
 - Maintainability
 - Readability
 - Reusability
 - Scalability
-- Separation of responsibilities
-- Dynamic test data
-- Reliable assertions
-- Clean architecture
+- Dynamic Test Data
+- Independent Test Execution
+- Clean Architecture
 
 ---
 
@@ -58,11 +59,12 @@ The framework follows software engineering and test automation best practices, f
 
 | Technology | Purpose |
 |------------|---------|
-| Cypress 15 | End-to-End Automation |
+| Cypress 15 | End-to-End & API Automation |
 | JavaScript (ES6) | Programming Language |
 | Node.js | Runtime |
 | Git | Version Control |
 | GitHub | Source Code Management |
+| Allure Report | Test Reporting |
 
 ---
 
@@ -79,6 +81,9 @@ The framework follows software engineering and test automation best practices, f
 │   │   └── product-registration.cy.js
 │   │
 │   └── api
+│       ├── users.cy.js
+│       ├── login.cy.js
+│       └── products.cy.js
 │
 ├── factories
 │   ├── userFactory.js
@@ -93,12 +98,16 @@ The framework follows software engineering and test automation best practices, f
 ├── support
 │   ├── api
 │   │   ├── auth.js
-│   │   └── users.js
+│   │   ├── users.js
+│   │   └── products.js
 │   │
 │   ├── commands.js
 │   └── e2e.js
 │
 ├── fixtures
+│
+├── docs
+│   └── evidence
 │
 ├── cypress.config.js
 ├── package.json
@@ -110,15 +119,17 @@ The framework follows software engineering and test automation best practices, f
 # ✅ Implemented Features
 
 - ✔ Cypress Configuration
+- ✔ End-to-End Automation
+- ✔ API Automation
 - ✔ Page Object Model (POM)
 - ✔ Factory Pattern
 - ✔ Dynamic Test Data
 - ✔ API Custom Commands
-- ✔ Frontend Automation
-- ✔ Request & Response Validation
+- ✔ Request Validation
+- ✔ Response Validation
 - ✔ Reusable Components
-- ✔ Explicit Assertions
-- ✔ Modular Project Structure
+- ✔ Independent Test Execution
+- ✔ Allure Report Integration
 
 ---
 
@@ -134,43 +145,47 @@ The framework follows software engineering and test automation best practices, f
 
 ---
 
-## API Support Layer
-
-| Feature | Status |
-|----------|--------|
-| Create User Command | ✅ Completed |
-| Login Command | ✅ Completed |
-| Product Command | 🚧 Planned |
-
 ## API
 
 | Scenario | Status |
 |----------|--------|
-| User Creation and Retrieval | ✅ Completed |
-| Authentication with Valid Credentials | ✅ Completed |
-| Product Registration | ⏳ Planned |
+| User Creation | ✅ Completed |
+| Authentication | ✅ Completed |
+| Authenticated Product Registration | ✅ Completed |
 
+---
+
+# 🔌 API Support Layer
+
+The framework provides a reusable API layer used to prepare test data and support End-to-End scenarios.
+
+| Component | Description | Status |
+|-----------|-------------|--------|
+| User Command | Creates administrator users dynamically | ✅ |
+| Authentication Command | Retrieves Bearer Token | ✅ |
+| Product Requests | Authenticated product creation | ✅ |
+| Dynamic Factories | Generates unique users and products | ✅ |
+| Request Validation | Validates payloads and headers | ✅ |
+| Response Validation | Validates status codes and response body | ✅ |
 
 ---
 
 # 🧪 Test Strategy
 
-The framework follows the principle of **independent test execution**.
+Each automated scenario is fully independent.
 
-Each End-to-End scenario prepares its own test data using the API whenever possible, avoiding dependencies between tests.
-
-Example flow:
+Whenever possible, test data is created dynamically through the API before executing UI interactions.
 
 ```text
-Create User (API)
+Create Test Data
 
 ↓
 
-Login (Frontend)
+Authenticate
 
 ↓
 
-Business Action (Frontend)
+Execute Business Flow
 
 ↓
 
@@ -178,72 +193,79 @@ Validate UI
 
 ↓
 
-Validate API Response
+Validate API
+
+↓
+
+Cleanup (when applicable)
 ```
 
 This approach provides:
 
-- Faster execution
+- Stable execution
 - Better maintainability
-- Lower UI dependency
-- Stable automated tests
+- Faster execution
+- No dependency between tests
+
+---
+
+# 📊 Test Execution Evidence
+
+## Allure Report
+
+Latest execution summary:
+
+- ✅ Total Tests: **6**
+- ✅ Passed: **6**
+- ❌ Failed: **0**
+- 📈 Success Rate: **100%**
+
+![Allure Report Overview](docs/evidence/allure-report-overview.png)
 
 ---
 
 # ▶ Running the Project
 
-## Install dependencies
+Install dependencies
 
 ```bash
 npm install
 ```
 
----
-
-## Open Cypress
+Open Cypress
 
 ```bash
 npm run cy:open
 ```
 
----
-
-## Run all tests
+Run all tests
 
 ```bash
-npm run cy:run
+npm run test:all
 ```
 
----
-
-## Run all Frontend tests
+Run Frontend tests
 
 ```bash
 npm run test:frontend
 ```
 
----
-
-## Run Registration scenario
+Run API tests
 
 ```bash
-npm run test:registration
+npm run test:api
 ```
 
----
-
-## Run Login scenario
+Generate Allure Report
 
 ```bash
-npm run test:login
+npm run report
 ```
 
----
-
-## Run Product Registration scenario
+Open Allure Report
 
 ```bash
-npm run test:product
+npm run allure:open
 ```
 
 ---
@@ -254,81 +276,62 @@ npm run test:product
 - Factory Pattern
 - Dynamic Test Data
 - API Data Preparation
+- Independent Test Execution
+- Clean Code
 - Separation of Responsibilities
 - Reusable Commands
-- Independent Test Execution
 - Explicit Assertions
-- Stable Selectors
-- Clean Code
-- Version Control with Git
+- Git Version Control
+- Professional Documentation
 
 ---
 
-# 📈 Development Log
+# 📈 Development Timeline
 
 ## Version 1.0
 
-- Initial project structure
+- Initial project setup
 - Cypress configuration
-- Project documentation
-
----
+- Project structure
 
 ## Version 1.1
 
-- Administrator Registration scenario
-- Registration Page Object
-- Dynamic User Factory
-
----
+- Administrator Registration
+- User Factory
 
 ## Version 1.2
 
-- API layer created
-- User creation command
-- Login command
-
----
+- Login automation
+- Authentication API
 
 ## Version 1.3
 
-- Administrator Login scenario
-- Login Page Object
-- Admin Home Page
-
----
+- Product Registration
+- Product Factory
 
 ## Version 1.4
 
-- Product Factory
-- Product Registration Page
-- Product Registration scenario
+- API Test Suite
+- User API
+- Login API
+- Product API
+
+## Version 1.5
+
+- Allure Report Integration
+- Professional Documentation
+- Final Framework Review
 
 ---
 
-# 🚀 Roadmap
+# 🚀 Future Improvements
 
-### API Automation
-
-- User API Tests
-- Login API Tests
-- Product API Tests
-
-### Reports
-
-- Allure Report Integration
-
-### CI/CD
-
-- GitHub Actions
-
-### Improvements
-
-- Environment Management
+- GitHub Actions Pipeline
 - Docker Support
+- Environment Management
 - Parallel Execution
-- Data Cleanup
-- Pipeline Execution
+- Test Data Cleanup Service
+- Publish Allure Report via GitHub Pages
 
 ---
 
@@ -350,4 +353,6 @@ https://www.linkedin.com/in/caiovfsilva
 
 # 📄 License
 
-This repository was developed exclusively for educational purposes, portfolio presentation and technical assessment in Software Quality Assurance.
+This project was developed for educational purposes, portfolio presentation and technical assessment in Software Quality Assurance.
+
+It demonstrates modern QA Automation practices using Cypress, JavaScript and API Testing.

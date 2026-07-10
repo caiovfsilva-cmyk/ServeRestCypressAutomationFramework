@@ -4,24 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "cy:open": "cypress open",
-  "cy:run": "cypress run",
-  "test:frontend": "cypress run --spec \"cypress/e2e/frontend/**/*.cy.js\"",
-  "test:registration": "cypress run --spec \"cypress/e2e/frontend/user-registration.cy.js\"",
-  "test:login": "cypress run --spec \"cypress/e2e/frontend/user-login.cy.js\"",
-  "test:product": "cypress run --spec \"cypress/e2e/frontend/product-registration.cy.js\"",
-  "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
-  "test:api:users": "cypress run --spec \"cypress/e2e/api/users.cy.js\"",
-  "test:api:login": "cypress run --spec \"cypress/e2e/api/login.cy.js\"",
-  "test:api:products": "cypress run --spec \"cypress/e2e/api/products.cy.js\""
-},
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:frontend": "cypress run --spec \"cypress/e2e/frontend/**/*.cy.js\"",
+    "test:registration": "cypress run --spec \"cypress/e2e/frontend/user-registration.cy.js\"",
+    "test:login": "cypress run --spec \"cypress/e2e/frontend/user-login.cy.js\"",
+    "test:product": "cypress run --spec \"cypress/e2e/frontend/product-registration.cy.js\"",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
+    "test:api:users": "cypress run --spec \"cypress/e2e/api/users.cy.js\"",
+    "test:api:login": "cypress run --spec \"cypress/e2e/api/login.cy.js\"",
+    "test:api:products": "cypress run --spec \"cypress/e2e/api/products.cy.js\"",
+    "test:all": "cypress run",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results",
+    "report": "npm run test:all && npm run allure:generate"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs", 
+  "type": "commonjs",
   "devDependencies": {
+    "allure-commandline": "^2.43.0",
+    "allure-cypress": "^3.10.2",
     "cypress": "^15.18.1"
-    
   }
 }
-
