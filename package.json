@@ -8,12 +8,15 @@
   "cy:run": "cypress run",
   "test:frontend": "cypress run --spec \"cypress/e2e/frontend/**/*.cy.js\"",
   "test:registration": "cypress run --spec \"cypress/e2e/frontend/user-registration.cy.js\"",
-  "test:login": "cypress run --spec \"cypress/e2e/frontend/user-login.cy.js\""
+  "test:login": "cypress run --spec \"cypress/e2e/frontend/user-login.cy.js\"",
+  "test:product": "cypress run --spec \"cypress/e2e/frontend/product-registration.cy.js\"",
+  "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
+  "test:api:users": "cypress run --spec \"cypress/e2e/api/users.cy.js\""
 },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "commonjs", 
   "devDependencies": {
     "cypress": "^15.18.1"
     

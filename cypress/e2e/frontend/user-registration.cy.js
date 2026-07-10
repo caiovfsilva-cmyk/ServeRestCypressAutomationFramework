@@ -1,5 +1,5 @@
 const registrationPage = require('../../pages/RegistrationPage')
-const { createUser } = require('../../utils/userFactory')
+const { createUser } = require('../../factories/userFactory')
 
 describe('Administrator user registration', () => {
   it('should register a new administrator user successfully', () => {

@@ -1,6 +1,6 @@
 const loginPage = require('../../pages/LoginPage')
 const adminHomePage = require('../../pages/AdminHomePage')
-const { createUser } = require('../../utils/userFactory')
+const { createUser } = require('../../factories/userFactory')
 
 describe('Administrator login', () => {
   it('should log in successfully with valid administrator credentials', () => {
