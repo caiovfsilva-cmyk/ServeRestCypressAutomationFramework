@@ -4,13 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "cy:open": "cypress open",
+  "cy:run": "cypress run",
+  "test:frontend": "cypress run --spec \"cypress/e2e/frontend/**/*.cy.js\"",
+  "test:registration": "cypress run --spec \"cypress/e2e/frontend/user-registration.cy.js\"",
+  "test:login": "cypress run --spec \"cypress/e2e/frontend/user-login.cy.js\""
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "cypress": "^15.18.1"
+    
   }
 }
+

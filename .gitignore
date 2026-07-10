@@ -1,7 +1,7 @@
 node_modules/
 
-cypress/videos/
 cypress/screenshots/
+cypress/videos/
 cypress/downloads/
 
 allure-results/
@@ -11,5 +11,5 @@ allure-report/
 cypress.env.json
 
 *.log
-.DS_Store
 .vscode/
+.DS_Store
