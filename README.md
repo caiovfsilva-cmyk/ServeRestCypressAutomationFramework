@@ -142,6 +142,15 @@ The framework follows software engineering and test automation best practices, f
 | Login Command | ✅ Completed |
 | Product Command | 🚧 Planned |
 
+## API
+
+| Scenario | Status |
+|----------|--------|
+| User Creation and Retrieval | ✅ Completed |
+| Authentication with Valid Credentials | ✅ Completed |
+| Product Registration | ⏳ Planned |
+
+
 ---
 
 # 🧪 Test Strategy
